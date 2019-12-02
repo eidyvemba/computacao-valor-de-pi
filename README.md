@@ -15,24 +15,19 @@
 	Especificos: Comparar a eficiência em termos de tempo de execução das séries, evidenciando assim os demais artefactos p
 		ouco paorveitados no modelo serial, e comparar relativamente ao uso de Processos e Threads.  
 
-//Desenvolvimento das séries em C
-/* Serie para o calculo de PI de Nilakantha*/
-    void Nilakantha(int i, int n, long double *x)
-    {
-        *x = 3;
-		for (int k = 2; n > i; n--)
-		    *x += (long double)(potencia(-1,-n) * (4.0/(long double)mult(&k)));
-    }
+Desenvolvimento das séries em C:
+	
     
     /* Serie para o calculo de PI de Lambert*/
     void Lambert(int k, int n, long double *x)
     {
         long double aux = (2 * n - 1) + potencia(n, 2) / (2 * n + 1);
 		for ( ; n > 0; n--) 
-		    aux = (2 * n - 1) + potencia(n, 2)/ aux;
+			aux = (2 * n - 1) + potencia(n, 2)/ aux;
 		*x = 4/aux;
     }
-
+    
+    /* Serie para o calculo de PI de Leibniz*/
     void Leibniz(int i, int n, long double *x)
     {
         *x = 0;
@@ -43,13 +38,21 @@
     /* Serie para o calculo de PI de Viete*/
     void Viete(int i, int n, long double *x)
     {
-	    long double numerador = 0, an = 1.0;
+		long double numerador = 0, an = 1.0;
 		for ( ; i <= n; i++)
 		{
-		    numerador = raizQuadrada(2.0 + numerador);
-		    an *= numerador/2.0;
+			numerador = raizQuadrada(2.0 + numerador);
+			an *= numerador/2.0;
 		}
 		*x = (2.0/an);
+    }
+    
+    /* Serie para o calculo de PI de Nilakantha*/
+    void Nilakantha(int i, int n, long double *x)
+    {
+		*x = 3;
+		for (int k = 2; n > i; n--)
+			*x += (long double)(potencia(-1,-n) * (4.0/(long double)mult(&k)));
     }
 
 # Autores/Desenvolvedores:
